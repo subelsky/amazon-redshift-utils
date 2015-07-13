@@ -153,7 +153,7 @@ def get_pg_conn():
             
         try:
             options = 'keepalives=1 keepalives_idle=200 keepalives_interval=200 keepalives_count=5'
-            connection_string = "host=%s port=%s dbname=%s user=%s password=%s %s" % (db_host, db_port, db, db_user, db_pwd, options)
+            connection_string = "host=%s port=%s dbname=%s user=%s password='%s' %s" % (db_host, db_port, db, db_user, db_pwd, options)
 
             conn = pg.connect(dbname=connection_string)
         except Exception as e:
